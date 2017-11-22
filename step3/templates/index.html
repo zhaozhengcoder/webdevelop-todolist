@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <!-- flask 消息闪现 ---!---->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+         <!-- flask 消息闪现 ---!---->
+
+        <table border="2">
+            <tr>
+                <td>index </td>
+                <td>todo list</td>
+                <td>是否完成</td>
+                <td>时间</td>
+                <td>操作</td>
+            </tr>
+            {% for todo in todolists %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.status}}</td>
+                <td>{{todo.create_time}}</td>
+                <td>
+                    {% if todo.status %}
+                    <a href="/" class="btn btn-danger" role ="button">删除</a>
+                    {% else %}
+                    <a href="/" class="btn btn-success" role ="button">修改</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"> ADD </button>
+    </body>
+</html>

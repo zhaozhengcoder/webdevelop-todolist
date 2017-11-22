@@ -6,3 +6,4 @@ flask实现一个todolist
 
 step1 ： 使用wtf实现了一个登录的表单
 step2 ： 使用flask_alchemy实现的查询todolist
+step3 :  添加了flash和更改了login和showlis页面的一部分逻辑（初步的有一个todolist的框架了）

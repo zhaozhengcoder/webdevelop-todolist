@@ -6,6 +6,9 @@ step 2 ：使用sqlalchemy 实现了基本的查询todolist里面的内容
 关键点：
 1. 如果不熟悉orm，可能要先看一下sqlalchemy
 2. 然后看一下flask-sqlalchemy 这个东西 ，熟悉一下基本的语法
+
+官网文档：http://www.pythondoc.com/flask-sqlalchemy/  
+然后看完官方文档里面的快速入门
 """
 from flask import (Flask, render_template, redirect, url_for, request, flash)
 import forms

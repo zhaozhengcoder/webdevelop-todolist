@@ -14,7 +14,7 @@ app.secret_key=config.SECRET_KEY
 def login():
     if request.method == 'GET':
         form = forms.LoginFrom()
-        return render_template("index.html",form=form)
+        return render_template("login.html",form=form)
     else:
         username=request.form['username']
         password=request.form['password']

@@ -31,3 +31,13 @@ step 6:
 finally:
 
 最后的版本
+
+
+## others：
+```
+要先把sql文件导入到数据库里面，在数据库里面创建一个test的库，然后导入sql文件
+
+or
+
+mysql -h127.0.0.1 -uroot -proot -Dtest -P3306 < schema.sql
+```

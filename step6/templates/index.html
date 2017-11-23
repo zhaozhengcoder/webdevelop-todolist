@@ -1,0 +1,55 @@
+<html>
+    <body>
+        <!-- flask 消息闪现 ---!---->
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+            {% endif %}
+        {% endwith %}
+         <!-- flask 消息闪现 ---!---->
+
+        <table border="2">
+            <tr>
+                <td>index </td>
+                <td>todo list</td>
+                <td>是否完成</td>
+                <td>时间</td>
+                <td>操作</td>
+            </tr>
+            {% for todo in todolists %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{todo.title}}</td>
+                <td>{{todo.status}}</td>
+                <td>{{todo.create_time}}</td>
+                <td>
+                    {% if todo.status %}
+                    <a href="{{ url_for('delete_todo_list', id=todo.id) }}" class="btn btn-danger" role ="button">删除</a>
+                    {% else %}
+                    <a href="{{ url_for('change_todo_list', id=todo.id) }}" class="btn btn-success" role ="button">修改</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        
+        <br>
+        <br>
+        <h2>add a new todolist</h2>
+        <form method="POST">
+            {{ form.title.label }}{{ form.title() }} <br>
+            {{ form.status.label }}{{ form.status() }}<br>
+            {{ form.submit() }}
+        </form>
+        
+        <br>
+        <br>
+        <h2>logout</h2>
+        <a href="{{ url_for('logout') }}" class="btn btn-danger" role ="button">logout</a>
+    </body>
+</html>
